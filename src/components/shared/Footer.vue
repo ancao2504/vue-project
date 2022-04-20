@@ -6,9 +6,22 @@
             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-4">
                 <div class="content-box-footer">
                     <h3>Học Wordpress từ a đến z</h3>
-                    <img src="https://hocwordpress.vn/wp-content/uploads/2020/03/hocwordpress-w.png" alt="Học Wordpress từ a đến z"> 
+                    <img src="#" alt="Học Wordpress từ a đến z"> 
                     <p>Chuyên trang hướng dẫn wordpress từ a đến z. Hướng dẫn wordpress cơ bản, hướng dẫn lập trình theme. Chia sẻ khóa học wordpress miễn phí và có phí.</p>
-                    <div class="footer-ocial"><a href="https://facebook.com/hocwordpressdotvn" target="_blank" rel="noreferrer"><i class="fa fa-facebook"></i></a> <a href="https://twitter.com/huykira" target="_blank" rel="noreferrer"><i class="fa fa-twitter"></i></a> <a href="https://instagram.com/huykira" target="_blank" rel="noreferrer"><i class="fa fa-instagram"></i></a> <a href="https://youtube.com/huykira" target="_blank" rel="noreferrer"><i class="fa fa-youtube-play"></i></a></div>
+                    <div class="footer-ocial">
+                        <a href="#" target="_blank" rel="noreferrer">
+                            <i class="fa fa-facebook"></i>
+                        </a> 
+                        <a href="https://twitter.com/huykira" target="_blank" rel="noreferrer">
+                            <i class="fa fa-twitter"></i>
+                        </a> 
+                        <a href="https://instagram.com/huykira" target="_blank" rel="noreferrer">
+                            <i class="fa fa-instagram"></i>
+                        </a> 
+                        <a href="https://youtube.com/huykira" target="_blank" rel="noreferrer">
+                            <i class="fa fa-youtube-play"></i>
+                        </a>
+                    </div>
                 </div>
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-4">
@@ -52,10 +65,10 @@
         </div>
     </div>
     <div class="copyright">
-        <p>Copyright © 2020 HOCWORDPRESS All Rights Reserved. Design by Huy Kira</p>
+        <p class="copyright">Tìm hiểu vuejs</p>
     </div>
     <div class="back-to-top-footer">
-        <div class="vue-back-to-top" style="bottom: 40px; right: 30px;"><i class="fa fa-angle-up"></i></div>
+        <div class="vue-back-to-top" @click="toTop" style="bottom: 40px; right: 30px;" ><i class="fa fa-angle-up"></i></div>
     </div>
     <div>
         <!----><!---->
@@ -74,3 +87,36 @@
     </div>
 </footer>
 </template>
+
+<script>
+    import options from "@/services/api/option.json";
+    export default {
+        data() {
+            return {
+                scTimer: 0,
+                scY: 0,
+                // options
+                options: options,
+            }
+        },
+        mounted() {
+            window.addEventListener('scroll', this.handleScroll);
+        },
+        methods: {
+            handleScroll: function () {
+                if (this.scTimer) return;
+                this.scTimer = setTimeout(() => {
+                this.scY = window.scrollY;
+                clearTimeout(this.scTimer);
+                this.scTimer = 0;
+                }, 100);
+            },
+            toTop: function () {
+                window.scrollTo({
+                    top: 0,
+                    behavior: "smooth"
+                });
+            },
+        },
+    }
+</script>

@@ -35,4 +35,5 @@
 <style>
     @import './assets/css/main.css';
     @import './assets/css/vendors.min.css';
+    @import './assets/css/bootrap.min.css';
 </style>
