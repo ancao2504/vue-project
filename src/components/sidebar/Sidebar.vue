@@ -3,6 +3,7 @@
         <div class="sidebar-ads"><ins data-ad-client="ca-pub-1228209458646183" data-ad-slot="8538206399" data-ad-format="auto" data-full-width-responsive="true" class="adsbygoogle" style="display: block;"></ins></div>
         <div class="sidebar">
             <div class="widget">
+                <div class="c">{{titleHeader}}</div>
                 <div>
                     <h3><span>Chuyên mục</span></h3>
                     <div class="widget-content w-category">
@@ -96,6 +97,12 @@
                 pathPicture: 'https://hocwordpress.vn/img/100x80/vue/',
                 limit: 10
             };
+        },
+        props : {
+            titleHeader: {
+                type: String,
+                default: 'Gia tri mac dinh khong truyen'
+            }
         },
         created() {
             this.axios.get("https://hocwordpress.vn/wp-json/api/sidebar").then((response) => {
